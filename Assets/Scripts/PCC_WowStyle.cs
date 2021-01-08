@@ -6,18 +6,22 @@ public class PCC_WowStyle : MonoBehaviour {
     /**
      * Player Character controller script that mimicks the movement style of
      * world of warcraft
+     * Minus:
+     *     Jumping
+     *     Momentum
+     *     Gravity acceleration
+     *     3d camera motions (y axis rotate only)
     **/
-    private CharacterController controller;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private float gravityValue = -9.81f;
 
-    public float playerSpeed = 2.0f;
-    public float rot = 30.0f; //Degree's per second
+    private CharacterController controller;
 
     private Vector3 defaultCameraAngle;
     private float timeUntilCameraReset = 0f;
     private bool cameraSkewed = false;
+
+    public float playerSpeed = 2.0f;
+    public float rot = 30.0f; //Degree's per second
+    public float fallSpeed = 2f;
 
     public GameObject cameraObject = null; //Not normally the camera itself
     //But instead the gameobject that the camera is parented to allowing for
@@ -31,9 +35,8 @@ public class PCC_WowStyle : MonoBehaviour {
     }
 
     void Update() {
-        groundedPlayer = controller.isGrounded;
-        if(groundedPlayer && playerVelocity.y < 0) {
-            playerVelocity.y = 0f;
+        if(!controller.isGrounded) {
+            controller.Move(new Vector3(0, -fallSpeed, 0));
         }
 
         movePlayer(Input.GetAxis("Vertical"));
