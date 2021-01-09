@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PCC_WowStyle : MonoBehaviour {
+public class PCC_WowStyle : PCC_Default {
     /**
      * Player Character controller script that mimicks the movement style of
      * world of warcraft
@@ -12,26 +12,20 @@ public class PCC_WowStyle : MonoBehaviour {
      *     Gravity acceleration
      *     3d camera motions (y axis rotate only)
     **/
-
-    private CharacterController controller;
-
-    private Vector3 defaultCameraAngle;
+    private Quaternion defaultCameraAngle;
     private float timeUntilCameraReset = 0f;
     private bool cameraSkewed = false;
 
-    public float playerSpeed = 2.0f;
     public float rot = 30.0f; //Degree's per second
-    public float fallSpeed = 2f;
 
     public GameObject cameraObject = null; //Not normally the camera itself
     //But instead the gameobject that the camera is parented to allowing for
     //swivel around centre
     public float cameraResettime = 1f; //One second
-    public float cameraSensitivity = 1f;
 
-    private void Start() {
-        controller = gameObject.GetComponent<CharacterController>();
-        defaultCameraAngle = cameraObject.transform.forward;
+    protected override void Start() {
+        base.Start();
+        defaultCameraAngle = cameraObject.transform.localRotation;
     }
 
     void Update() {
@@ -40,19 +34,24 @@ public class PCC_WowStyle : MonoBehaviour {
         }
 
         movePlayer(Input.GetAxis("Vertical"));
-        turnPlayer(Input.GetAxis("Horizontal"));
+        turnPlayer(Input.GetAxis("Horizontal") * Time.deltaTime * rot);
 
 
         if(cameraSkewed) {
             timeUntilCameraReset -= Time.deltaTime;
             if(timeUntilCameraReset <= 0) {
-                cameraObject.transform.forward = defaultCameraAngle;
+                cameraObject.transform.localRotation = defaultCameraAngle;
                 cameraSkewed = false;
             }
         }
-        
-        //TODO Mouse junk if holding rmb then fps controls
-        //If holding lmb move just camera
+
+        float mouseHori = Input.GetAxis("Mouse X") * cameraSensitivity;
+        if(Input.GetAxis("RMB") == 1f) {
+            turnPlayer(mouseHori);
+        } else if(Input.GetAxis("LMB") == 1f) {
+            turnCamera(mouseHori);
+        }
+
     }
 
     void movePlayer(float dir) {
@@ -60,16 +59,14 @@ public class PCC_WowStyle : MonoBehaviour {
         controller.Move(gameObject.transform.forward * delta);
     }
 
-    void turnPlayer(float dir) {
-        float delta = Time.deltaTime * dir * rot;
-        gameObject.transform.eulerAngles += new Vector3(0, delta, 0);
+    void turnPlayer(float raw) {
+        gameObject.transform.eulerAngles += new Vector3(0, raw, 0);
     }
 
     void turnCamera(float raw) {
         cameraSkewed = true;
         timeUntilCameraReset = cameraResettime;
 
-        float amount = raw * cameraSensitivity;
-        cameraObject.transform.eulerAngles += new Vector3(0, amount, 0);
+        cameraObject.transform.eulerAngles += new Vector3(0, raw, 0);
     }
 }
