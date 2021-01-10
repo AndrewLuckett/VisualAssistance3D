@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface InteractableTemplate {
-    void trigger();
+public interface GOA_Triggerable { 
+    TriggerResponses trigger();
 }
