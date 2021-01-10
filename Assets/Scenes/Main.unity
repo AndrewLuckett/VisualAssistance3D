@@ -823,6 +823,7 @@ GameObject:
   - component: {fileID: 1424552257}
   - component: {fileID: 1424552256}
   - component: {fileID: 1424552255}
+  - component: {fileID: 1424552259}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -916,6 +917,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424552253}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1424552259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424552253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6a77514bdbd4c41a7ef0626e7c10da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 
+  importance: 1
+  accessibleScriptParent: {fileID: 0}
 --- !u!1 &1511655727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,16 +1121,6 @@ PrefabInstance:
     - target: {fileID: 6678051666549399877, guid: 257575171a5cd8844abddfe36f5e50c7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678051666549399878, guid: 257575171a5cd8844abddfe36f5e50c7,
-        type: 3}
-      propertyPath: triggerObjects.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678051666549399878, guid: 257575171a5cd8844abddfe36f5e50c7,
-        type: 3}
-      propertyPath: singleUse
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6678051666549399878, guid: 257575171a5cd8844abddfe36f5e50c7,

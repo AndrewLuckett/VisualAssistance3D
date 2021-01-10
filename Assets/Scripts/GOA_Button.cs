@@ -23,12 +23,12 @@ public class GOA_Button : MonoBehaviour, GOA_Triggerable {
                 Debug.Log("Button loaded with GO with no triggerable script");
         }
 
-        Debug.Log(t.Count);
+        //Debug.Log(t.Count);
         triggers = t.ToArray();
     }
 
     public TriggerResponses trigger() {
-        Debug.Log(triggers.Length);
+        //Debug.Log(triggers.Length);
         if(used && singleUse)
             return TriggerResponses.normalNothing;
 

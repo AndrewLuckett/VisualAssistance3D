@@ -31,15 +31,14 @@ public class PCF_Interaction_Aoe : MonoBehaviour {
         Vector3 angle = rotateOffAxis + transform.eulerAngles;
         Vector3 pos = transform.forward * displacementOffCentre + transform.position;
 
-        Collider[] hitColliders = Physics.OverlapBox(pos, size/2, Quaternion.Euler(angle), interactionMask);
+        Collider[] hitColliders = Physics.OverlapBox(pos, size / 2, Quaternion.Euler(angle), interactionMask);
 
         foreach(Collider c in hitColliders) {
-            GOA_Triggerable obj = c.GetComponent<GOA_Triggerable>();
-            if(obj != null) {
-                obj.trigger();
-            }
+            GOA_Triggerable[] obj = c.GetComponents<GOA_Triggerable>();
+            if(obj.Length > 0)
+                foreach(GOA_Triggerable t in obj)
+                    t.trigger();
         }
-
     }
 
     //void OnDrawGizmos() {
@@ -47,7 +46,7 @@ public class PCF_Interaction_Aoe : MonoBehaviour {
     //    //Check that it is being run in Play Mode, so it doesn't try to draw this in Editor mode
     //    if(m_Started)
     //        //Draw a cube where the OverlapBox is (positioned where your GameObject is as well as a size)
-            
+
     //        Gizmos.DrawWireCube(transform.forward * displacementOffCentre + transform.position, size);
     //}
 }

@@ -116,11 +116,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 2
-  rot: 45
   fallSpeed: 0.2
+  cameraSensitivity: 1.35
+  rot: 45
   cameraObject: {fileID: 5860254224863719118}
   cameraResettime: 1
-  cameraSensitivity: 1
 --- !u!114 &810267824
 MonoBehaviour:
   m_ObjectHideFlags: 0
