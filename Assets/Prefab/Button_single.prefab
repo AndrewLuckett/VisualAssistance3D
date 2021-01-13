@@ -218,7 +218,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6678051666549399876}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -254,5 +254,5 @@ MonoBehaviour:
   source: {fileID: 5625841660075174676}
   cycle: 0
   sounds:
-  - {fileID: 8300000, guid: 1391fca2bb4c6da448aa80f7a6d48b5f, type: 3}
-  - {fileID: 8300000, guid: 4f03e9e082ec11e44bf6c462a967bdbf, type: 3}
+  - {fileID: 8300000, guid: 69a75dbc86f60bb4f98b3f7533ffc216, type: 3}
+  - {fileID: 8300000, guid: 84d7a4f4f5986084ea1e706fab2b5cdd, type: 3}

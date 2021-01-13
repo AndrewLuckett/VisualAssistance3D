@@ -32,7 +32,7 @@ public class PCC_WowStyle : PCC_Default {
         if(!controller.isGrounded) {
             controller.Move(new Vector3(0, -fallSpeed, 0));
         }
-
+        
         movePlayer(Input.GetAxis("Vertical"));
         turnPlayer(Input.GetAxis("Horizontal") * Time.deltaTime * rot);
 

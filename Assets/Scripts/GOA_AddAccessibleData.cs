@@ -8,6 +8,8 @@ public class GOA_AddAccessibleData : MonoBehaviour, GOA_Triggerable {
     * Adds data to the accessibility scheme
     * Useful for adding information like the fact a door has opened
     * Or that the user pressed a button
+    * Practically as if the object was forced into view with a given
+    * importance.
     **/
     public string data = "";
     [Range(0f,1f)]

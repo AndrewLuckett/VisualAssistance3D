@@ -283,7 +283,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1953006159}
+  - {fileID: 1608617585}
   - {fileID: 191202590}
   - {fileID: 1424552254}
   m_Father: {fileID: 0}
@@ -1056,7 +1056,7 @@ Transform:
   m_Father: {fileID: 574241003}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1953006158
+--- !u!1001 &1608617584
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1066,37 +1066,37 @@ PrefabInstance:
     - target: {fileID: 6678051666549399876, guid: 257575171a5cd8844abddfe36f5e50c7,
         type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Button_single
       objectReference: {fileID: 0}
     - target: {fileID: 6678051666549399877, guid: 257575171a5cd8844abddfe36f5e50c7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.834
       objectReference: {fileID: 0}
     - target: {fileID: 6678051666549399877, guid: 257575171a5cd8844abddfe36f5e50c7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 1.655
       objectReference: {fileID: 0}
     - target: {fileID: 6678051666549399877, guid: 257575171a5cd8844abddfe36f5e50c7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 5.059
       objectReference: {fileID: 0}
     - target: {fileID: 6678051666549399877, guid: 257575171a5cd8844abddfe36f5e50c7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6678051666549399877, guid: 257575171a5cd8844abddfe36f5e50c7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6678051666549399877, guid: 257575171a5cd8844abddfe36f5e50c7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6678051666549399877, guid: 257575171a5cd8844abddfe36f5e50c7,
         type: 3}
@@ -1135,9 +1135,32 @@ PrefabInstance:
       objectReference: {fileID: 1424552253}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 257575171a5cd8844abddfe36f5e50c7, type: 3}
---- !u!4 &1953006159 stripped
+--- !u!4 &1608617585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6678051666549399877, guid: 257575171a5cd8844abddfe36f5e50c7,
     type: 3}
-  m_PrefabInstance: {fileID: 1953006158}
+  m_PrefabInstance: {fileID: 1608617584}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1608617586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6678051666549399876, guid: 257575171a5cd8844abddfe36f5e50c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1608617584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1608617587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608617586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a571b10d36d0b684eae7605b74f92967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Button
+  importance: 0.422
+  attribs:
+  - attrib_name: colour
+    attrib_value: red
