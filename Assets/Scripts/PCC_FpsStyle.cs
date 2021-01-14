@@ -12,11 +12,8 @@ public class PCC_FpsStyle : PCC_Default {
      *     Gravity acceleration
      *     3d camera motions (x axis rotate only)
     **/
-    void Update() {
-        if(!controller.isGrounded) {
-            controller.Move(new Vector3(0, -fallSpeed, 0));
-        }
 
+    protected override void handleUpdate() {
         movePlayer(Input.GetAxis("Vertical"));
         strafePlayer(Input.GetAxis("Horizontal"));
         

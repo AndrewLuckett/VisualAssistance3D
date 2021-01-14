@@ -19,14 +19,28 @@ public class PCC_Default : MonoBehaviour {
             controller.height = 2f;
             controller.center = new Vector3(0, 1, 0);
         }
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    void Update() {
+    protected virtual void Update() {
+        //always updating, even when paused
+        if(canProcessInput())
+            handleUpdate();
+    }
+
+    protected virtual void handleUpdate() {
+        //Update for when the user input can be processed
         if(!controller.isGrounded) {
             controller.Move(new Vector3(0, -fallSpeed, 0));
-        }
+        } //Crappy pseudo gravity
 
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         controller.Move(move * Time.deltaTime * playerSpeed);
+    }
+
+    public bool canProcessInput() {
+        return Cursor.lockState == CursorLockMode.Locked;
     }
 }

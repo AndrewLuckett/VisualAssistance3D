@@ -28,14 +28,9 @@ public class PCC_WowStyle : PCC_Default {
         defaultCameraAngle = cameraObject.transform.localRotation;
     }
 
-    void Update() {
-        if(!controller.isGrounded) {
-            controller.Move(new Vector3(0, -fallSpeed, 0));
-        }
-        
+    protected override void handleUpdate() {
         movePlayer(Input.GetAxis("Vertical"));
         turnPlayer(Input.GetAxis("Horizontal") * Time.deltaTime * rot);
-
 
         if(cameraSkewed) {
             timeUntilCameraReset -= Time.deltaTime;
@@ -51,7 +46,6 @@ public class PCC_WowStyle : PCC_Default {
         } else if(Input.GetAxis("LMB") == 1f) {
             turnCamera(mouseHori);
         }
-
     }
 
     void movePlayer(float dir) {
