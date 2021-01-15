@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface GOA_Triggerable { 
-    TriggerResponses trigger();
+public interface DataToTextInterface {
+    string getText(List<Description> data);
 }

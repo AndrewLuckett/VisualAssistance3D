@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GOA_Button : MonoBehaviour, GOA_Triggerable {
+public class GOA_Button : MonoBehaviour, TriggerableInterface {
     /**
     * Game object Attribute - Button
     * Distributor might be a better name
     **/
     private bool used = false;
-    private GOA_Triggerable[] triggers;
+    private TriggerableInterface[] triggers;
 
     public bool singleUse = false;
     public GameObject[] triggerObjects;
 
     void Start() {
-        List<GOA_Triggerable> t = new List<GOA_Triggerable>();
+        List<TriggerableInterface> t = new List<TriggerableInterface>();
         foreach(GameObject g in triggerObjects) {
-            GOA_Triggerable[] a = g.GetComponents<GOA_Triggerable>();
+            TriggerableInterface[] a = g.GetComponents<TriggerableInterface>();
             if(a.Length > 0)
                 t.AddRange(a);
             else

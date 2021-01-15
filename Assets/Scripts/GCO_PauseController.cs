@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GCO_PauseController : MonoBehaviour {
     /**
-     * Game control option - Pause controller
+     * Game control object - Pause controller
     **/
 
     public GameObject pausewindow;

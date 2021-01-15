@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GOA_TriggeredSound : MonoBehaviour, GOA_Triggerable {
+public class GOA_TriggeredSound : MonoBehaviour, TriggerableInterface {
     /**
     * Game object Attribute - Make Sound 
     * Plays a single sound per trigger

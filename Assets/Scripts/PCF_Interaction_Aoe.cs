@@ -34,9 +34,9 @@ public class PCF_Interaction_Aoe : MonoBehaviour {
         Collider[] hitColliders = Physics.OverlapBox(pos, size / 2, Quaternion.Euler(angle), interactionMask);
 
         foreach(Collider c in hitColliders) {
-            GOA_Triggerable[] obj = c.GetComponents<GOA_Triggerable>();
+            TriggerableInterface[] obj = c.GetComponents<TriggerableInterface>();
             if(obj.Length > 0)
-                foreach(GOA_Triggerable t in obj)
+                foreach(TriggerableInterface t in obj)
                     t.trigger();
         }
     }

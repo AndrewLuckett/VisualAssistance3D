@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GOA_Vanishable : MonoBehaviour, GOA_Triggerable {
+public class GOA_Vanishable : MonoBehaviour, TriggerableInterface {
     /**
     * Game object Attribute - Vanishable
     * Can be used for rudimentary doors

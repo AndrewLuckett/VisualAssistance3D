@@ -37,9 +37,9 @@ public class PCF_Interaction : MonoBehaviour {
 
         if(Physics.Raycast(ray, out hit, range, interactionMask)) {
             //Debug.Log("Cast hit something");
-            GOA_Triggerable[] obj = hit.collider.GetComponents<GOA_Triggerable>();
+            TriggerableInterface[] obj = hit.collider.GetComponents<TriggerableInterface>();
             if(obj.Length > 0)
-                foreach(GOA_Triggerable t in obj)
+                foreach(TriggerableInterface t in obj)
                     t.trigger();
         }
     }

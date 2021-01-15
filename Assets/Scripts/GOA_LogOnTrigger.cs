@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GOA_LogOnTrigger : MonoBehaviour, GOA_Triggerable {
+public class GOA_LogOnTrigger : MonoBehaviour, TriggerableInterface {
     /**
     * Game object Attribute - Logger
     **/
