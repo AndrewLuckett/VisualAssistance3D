@@ -12,6 +12,7 @@ public class GCO_AccessibilityHost : MonoBehaviour {
     public GameObject[] onEventParent;
     //Unity has a hard time serialising interfaces
     private AccessibleInterface[] onEvent;
+
     public float timeout = 2f; //Seconds
     private float cooldown = 0f;
 
