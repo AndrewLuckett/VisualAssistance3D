@@ -1,0 +1,12 @@
+"sentence", "%direction% there is a {name} %bonus%."
+
+"direction", "%infront%", "%behind%", "%left%", "%right%"
+
+"infront", "Infront of you", "Directly ahead of you"
+"behind", "Behind you"
+"left", "To the left of you"
+"right", "To the right of you"
+
+"bonus", "", "%colour%"
+
+"colour", "that is {colour}", "in a {colour} shade"

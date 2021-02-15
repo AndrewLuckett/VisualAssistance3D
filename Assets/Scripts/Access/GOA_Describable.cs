@@ -19,7 +19,7 @@ public class GOA_Describable : MonoBehaviour {// , GOA_Triggerable{
     //forcefully defining a wrapper class specific to the field types
 
     private void loadData() {
-        //Not using Start() as all the describable object loading their dicts
+        //Not using Start() as all the describable objects loading their dicts
         //at the same time would ruin performance
         foreach(Attribute a in attribs)
             attribsD.Add(a.attrib_name, a.attrib_value);

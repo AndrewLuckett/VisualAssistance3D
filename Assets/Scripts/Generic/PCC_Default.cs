@@ -43,4 +43,8 @@ public class PCC_Default : MonoBehaviour {
     public bool canProcessInput() {
         return Cursor.lockState == CursorLockMode.Locked;
     }
+
+    public void setMouseSens(float v) {
+        cameraSensitivity = v;
+    }
 }

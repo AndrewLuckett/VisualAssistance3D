@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4012806491209582607}
   - component: {fileID: 5625841660075174676}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: ButtonSoundEmittor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,8 +141,9 @@ GameObject:
   - component: {fileID: 6678051666549399879}
   - component: {fileID: 6678051666549399878}
   - component: {fileID: 6265499742403998365}
+  - component: {fileID: 1608617587}
   m_Layer: 15
-  m_Name: Button
+  m_Name: Button_single
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,3 +257,20 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: 69a75dbc86f60bb4f98b3f7533ffc216, type: 3}
   - {fileID: 8300000, guid: 84d7a4f4f5986084ea1e706fab2b5cdd, type: 3}
+--- !u!114 &1608617587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678051666549399876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a571b10d36d0b684eae7605b74f92967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Button
+  importance: 0.422
+  attribs:
+  - attrib_name: colour
+    attrib_value: red

@@ -8,7 +8,8 @@ public class PCF_InVision : MonoBehaviour, AccessibleInterface {
      * Player character feature - Vision Objects
      * Samples an entire area and gets all objects
     **/
-    public LayerMask interactionMask;
+    public LayerMask visibleMask; //The things we care about
+    public LayerMask visionBlockingMask; //The things that can block what we care about
 
     private Vector3 rotateOffAxis = new Vector3(0, 45, 0);
     private float displacementOffCentre;
@@ -24,9 +25,10 @@ public class PCF_InVision : MonoBehaviour, AccessibleInterface {
         Vector3 angle = rotateOffAxis + transform.eulerAngles;
         Vector3 pos = transform.forward * displacementOffCentre + transform.position;
 
-        Collider[] hitColliders = Physics.OverlapBox(pos, size / 2, Quaternion.Euler(angle), interactionMask);
+        Collider[] hitColliders = Physics.OverlapBox(pos, size / 2, Quaternion.Euler(angle), visibleMask);
 
         foreach(Collider c in hitColliders) {
+            //TODO raycast if actually visible
             GOA_Describable obj = c.GetComponent<GOA_Describable>();
             //Debug.Log(obj.objectName);
             outl.Add(obj.getDescription(transform));
