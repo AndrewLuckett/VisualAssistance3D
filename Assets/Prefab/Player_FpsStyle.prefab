@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 108831626534467614}
   - component: {fileID: 2770913611950882615}
   - component: {fileID: 1948649819416196240}
-  - component: {fileID: 810267824}
   - component: {fileID: 810267829}
   - component: {fileID: 8553753723512858187}
-  m_Layer: 0
+  - component: {fileID: 2354300864926580309}
+  m_Layer: 2
   m_Name: Player_FpsStyle
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -97,13 +97,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 1.83
+  m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.915, z: 0}
 --- !u!114 &1948649819416196240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,26 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 2
   fallSpeed: 2
-  cameraSensitivity: 1.35
---- !u!114 &810267824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108831626534467611}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d4b640bce8adc44884c75ed0698e67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionMask:
-    serializedVersion: 2
-    m_Bits: 32768
-  cooldown: 1
-  range: 3
-  rotateOffAxis: {x: 0, y: 0, z: 0}
-  displacementOffCentre: {x: 0, y: 1, z: 0}
+  cameraSensitivity: 1.15
 --- !u!114 &810267829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +150,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ceea9c935332d94da7c5c048f33ff3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionMask:
+  visibleMask:
     serializedVersion: 2
     m_Bits: 98304
+  visionBlockingMask:
+    serializedVersion: 2
+    m_Bits: 98305
   size: {x: 10, y: 5, z: 10}
+  eyeHeight: 1.65
+--- !u!81 &2354300864926580309
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108831626534467611}
+  m_Enabled: 1
 --- !u!1 &108831626856003168
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108831626856003169}
   - component: {fileID: 108831626856003175}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera_TOP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,8 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108831627263018798}
   - component: {fileID: 108831627263018793}
-  - component: {fileID: 108831627263018792}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera_POV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108831627263018795}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.6, z: 0}
+  m_LocalPosition: {x: 0, y: 1.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 108831626534467608}
@@ -322,11 +314,3 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &108831627263018792
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108831627263018795}
-  m_Enabled: 1

@@ -30,6 +30,7 @@ public class GOA_Describable : MonoBehaviour {// , GOA_Triggerable{
         if(attribs != null) {
             loadData();
         }
+        
         Description outD = new Description(importance, objectName, attribsD);
         return outD;
     }
@@ -39,7 +40,13 @@ public class GOA_Describable : MonoBehaviour {// , GOA_Triggerable{
         if(attribs != null) {
             loadData();
         }
-        Description outD = new Description(importance, objectName, attribsD);
+        
+        Dictionary<string, string> attribsC = new Dictionary<string, string>(attribsD);
+        //TODO add angle and distance related attribs
+        //NN NE NW slight
+        //close far
+        Description outD = new Description(importance, objectName, attribsC);
+
         return outD;
     }
 

@@ -1,12 +1,13 @@
-"sentence", "%direction% there is a {name} %bonus%."
-
-"direction", "%infront%", "%behind%", "%left%", "%right%"
-
-"infront", "Infront of you", "Directly ahead of you"
-"behind", "Behind you"
-"left", "To the left of you"
-"right", "To the right of you"
-
-"bonus", "", "%colour%"
-
-"colour", "that is {colour}", "in a {colour} shade"
+"sentence",	"%direction% there is a {name} %bonus%."
+"direction",	"!NN!", "!NW!", "!NE!"
+"NN",		"Infront of you", "Directly ahead of you"
+"NE",		"%slightly% to the left of you"
+"NW",		"%slightly% to the right of you"
+"slightly",	"", "!slight!"
+"slight",	"slightly", "a little bit"
+"bonus",	"", "!colour!", "!size!", "!distance!"
+"colour",	"that is {colour}", "in a {colour} shade"
+"size",		"that is {size}"
+"distance",	"!close!", "!far!"
+"far",		""
+"close",	"" 

@@ -11,8 +11,8 @@ public class CSVDemangler {
      *     Yucky forcing that commas are always breaks
     **/
 
-    List<string[]> data = new List<string[]>();
-    char[] quoters = "'\"".ToCharArray();
+    private List<string[]> data = new List<string[]>();
+    private static char[] quoters = "'\"".ToCharArray();
 
     public CSVDemangler(string csv) {
         string[] lines = csv.Split('\n');
@@ -29,27 +29,42 @@ public class CSVDemangler {
     private string trimString(string inp) {
         char chosen = (char)0;
         int start = 0;
-        int stop = 0;
 
-        //The lack of braces here is evil
-        //but I couldn't help myself
-        //I miss python
-        for(int i = 0; i < inp.Length; i++) 
-            foreach(char quoter in quoters)
-                if(inp[i] == quoter)
-                    if(chosen == 0) {
+        for(int i = 0; i < inp.Length; i++) {
+            if(chosen == 0) {
+                foreach(char quoter in quoters) {
+                    if(inp[i] == quoter) {
                         chosen = quoter;
                         start = i + 1;
-                    } else {
-                        stop = i;
-                        break;
                     }
-        
-        return inp.Substring(start, stop-start);
+                }
+            } else {
+                if(inp[i] == chosen) {
+                    return inp.Substring(start, i - start);
+                }
+            }
+        }
+
+        return inp;
     }
 
 
     public List<string[]> getData() {
         return data;
+    }
+
+
+    public Dictionary<string, string[]> getDataAsDict(int keyIndex) {
+        Dictionary<string, string[]> outp = new Dictionary<string, string[]>();
+        foreach(string[] d in data) {
+            List<string> v = new List<string>();
+            for(int i = 0; i < d.Length; i++) {
+                if(i != keyIndex) {
+                    v.Add(d[i]);
+                }
+            }
+            outp.Add(d[keyIndex], v.ToArray());
+        }
+        return outp;
     }
 }
