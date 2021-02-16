@@ -8,7 +8,7 @@ public class GCO_PauseController : MonoBehaviour {
     **/
 
     public GameObject pausewindow;
-    private List<AudioSource> sounds;
+    private List<AudioSource> sounds = new List<AudioSource>();
 
     void Start() {
         setPauseMenuActive(pausewindow.activeSelf);

@@ -15,6 +15,9 @@ public class PCF_Interaction_Aoe : MonoBehaviour {
     public float displacementOffCentre = 5f;
     public Vector3 size = new Vector3(10, 5, 10);
 
+    public LayerMask visionBlockingMask; //The things that can block what we care about
+    public float eyeHeight = 1.65f;
+
     void Start() {
     }
 
@@ -33,11 +36,24 @@ public class PCF_Interaction_Aoe : MonoBehaviour {
 
         Collider[] hitColliders = Physics.OverlapBox(pos, size / 2, Quaternion.Euler(angle), interactionMask);
 
+        Debug.Log("bing");
         foreach(Collider c in hitColliders) {
-            TriggerableInterface[] obj = c.GetComponents<TriggerableInterface>();
-            if(obj.Length > 0)
-                foreach(TriggerableInterface t in obj)
-                    t.trigger();
+            Debug.Log("bong");
+            //check if visible
+            Vector3 posR = transform.position + new Vector3(0, eyeHeight, 0);
+            Vector3 delta = c.transform.position - posR;
+            Ray ray = new Ray(posR, delta);
+            Debug.DrawRay(posR, delta, Color.red, 2f);
+
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit, delta.magnitude, visionBlockingMask)) {
+                if(hit.collider == c) {
+                    TriggerableInterface[] obj = c.GetComponents<TriggerableInterface>();
+                    if(obj.Length > 0)
+                        foreach(TriggerableInterface t in obj)
+                            t.trigger();
+                }
+            }
         }
     }
 

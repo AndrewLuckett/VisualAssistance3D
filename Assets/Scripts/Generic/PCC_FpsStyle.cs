@@ -14,9 +14,12 @@ public class PCC_FpsStyle : PCC_Default {
     **/
 
     protected override void handleUpdate() {
+        if(!controller.isGrounded) {
+            controller.Move(new Vector3(0, -fallSpeed, 0));
+        } //Crappy pseudo gravity
+
         movePlayer(Input.GetAxis("Vertical"));
         strafePlayer(Input.GetAxis("Horizontal"));
-        
 
         float mouseHori = Input.GetAxis("Mouse X") * cameraSensitivity;
         turnPlayer(mouseHori);
